@@ -12,7 +12,7 @@ class Plant < ApplicationRecord
   def image_url_https
     unless image_url.include?('http://') || image_url.include?('https://')
       errors.add(
-        :image_url, "must be a url beginning with 'http://'' or 'https://'"
+        :image_url, "must be a url"
       )
     end
   end

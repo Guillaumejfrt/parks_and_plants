@@ -1,0 +1,26 @@
+#form-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-top: 30px;
+  text-align: center;
+  padding-bottom: 30px;
+  opacity: 0.8;
+  background-color: #43BC77;
+
+  h4 {
+    color: white
+  }
+  .form-control-label {
+    font-size: 16px;
+  }
+  .invalid-feedback {
+    color: red;
+  }
+
+}
+#submit-btn {
+  background-color: white;
+  color: #43BC77;
+  border-color: #43BC77;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6);
+}

@@ -3,7 +3,6 @@
   <h1><%= @garden.name %></h1>
 </div>
 
-
 <!-- MY PLANTS -->
 <div class="container">
   <div class="row">
@@ -13,6 +12,11 @@
           <div class="card-description">
             <h2><%= plant.name %></h2>
           </div>
+          <%= link_to "+",
+            plant_path(plant),
+            method: :delete, data: { confirm: "Are you sure?" },
+            class: "card-remove-link"
+          %>
         </div>
       </div>
     <% end %>
@@ -20,15 +24,17 @@
 </div>
 
 <!-- MY SIMPLE FORM -->
-<div class="container">
+<div class="container" id="form-container">
   <div class="row">
     <div class="col-sm-4 col-sm-offset-4">
       <h4>Add a plant:</h4>
 
       <%= simple_form_for([ @garden, @plant ]) do |f| %>
-        <%= f.input :name, placeholder: "Palm tree" %>
-        <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
-        <%= f.submit "Add", class: "btn btn-primary" %>
+        <%= f.input :name, class: "form-input", placeholder: "Palm tree" %>
+        <%= f.input :image_url,
+          placeholder: "https://some_nice_image_found_on_google.jpg"
+        %>
+        <%= f.submit "Add", id: "submit-btn", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
