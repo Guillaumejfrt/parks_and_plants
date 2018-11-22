@@ -48,11 +48,13 @@
         %>
         <%= f.submit "Add", id: "submit-btn", class: "btn btn-primary" %>
       <% end %>
+
+      <!-- Go back to gardens -->
+      <%= link_to gardens_path, style: "color: rgba(0, 0, 0, 0.5);" do %>
+        <i class="fas fa-backward"></i> Back to gardens
+      <% end %>
     </div>
   </div>
 </div>
 
-<%= link_to gardens_path, id: "back-to-gardens" do %>
-  <i class="fas fa-backward"></i> Back to gardens
-<% end %>
 
