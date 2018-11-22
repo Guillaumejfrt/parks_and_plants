@@ -28,6 +28,18 @@
   <div class="row">
     <div class="col-sm-4 col-sm-offset-4">
       <h4>Add a plant:</h4>
+      <!--
+        In the GardensController, inside the show action, we set @garden and
+        @plant.
+
+        As @plant is an instance of Plant but does not have an id yet,
+        simple_form knows it will have to post the form content to the
+        create action of the PlantsController!
+      -->
+
+      <!--
+        Let's inspect your form in the browser to check its action attribute and
+        its method attribute to see how simple_form is clever ;) -->
 
       <%= simple_form_for([ @garden, @plant ]) do |f| %>
         <%= f.input :name, class: "form-input", placeholder: "Palm tree" %>
