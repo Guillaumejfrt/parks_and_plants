@@ -1,0 +1,38 @@
+<div class="banner"
+     style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= @garden.banner_url %>')">
+
+
+  <h1><%= @garden.name %></h1>
+</div>
+
+
+<!-- MY PLANTS -->
+<ul>
+  <% @garden.plants.each do |plant| %>
+    <li>
+      <%= plant.name %>
+    </li>
+  <% end %>
+</ul>
+
+<!-- MY SIMPLE FORM -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <h4>Add a plant:</h4>
+
+      <%= simple_form_for([ @garden, @plant ]) do |f| %>
+
+        <%= f.input :name, placeholder: "Palm tree" %>
+
+        <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+
+        <%= f.submit "Add", class: "btn btn-primary" %>
+
+      <% end %>
+
+
+
+    </div>
+  </div>
+</div>
