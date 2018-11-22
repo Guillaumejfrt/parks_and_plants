@@ -6,10 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 if Rails.env.development?
-  puts "destroying gardens"
+  puts "Destroying gardens and plants..."
+  # We just need to destroy gardens to also destroy plants.
+  # This is possible thanks to the dependent: :destroy in the Garden model.
+  # It will automatically destroy all the plants of each garden before destroying
+  # the garden itself.
   Garden.destroy_all
 
-  puts "creating gardens"
+  puts "Creating gardens..."
+
   Garden.create!(
     name: "My Little Garden",
     banner_url: "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/garden_1.jpg"
@@ -20,5 +25,23 @@ if Rails.env.development?
     banner_url: "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/garden_2.jpg"
   )
 
-  puts "Seeds are done"
+  puts "Creating plants..."
+
+  Plant.create!(
+    name: 'Dieffenbachia',
+    image_url: 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/dieffenbachia.jpg',
+    garden: Garden.first
+  )
+  Plant.create!(
+    name: 'Monstera',
+    image_url: 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/monstera.jpg',
+    garden: Garden.first
+  )
+  Plant.create!(
+    name: 'Caryota',
+    image_url: 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/caryota.jpg',
+    garden: Garden.second
+  )
+
+  puts "Seeds are done!"
 end
